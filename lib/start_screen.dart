@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_front_page/questions.dart';
 
-class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+class StartScreen extends StatefulWidget {
+  @override
+  State<StartScreen> createState() => _StartScreenState();
+}
 
+class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +16,7 @@ class StartScreen extends StatelessWidget {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Color.fromARGB(254, 73, 39, 176),
+        backgroundColor: const Color.fromARGB(94, 73, 39, 176),
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: const Text(
@@ -21,7 +25,7 @@ class StartScreen extends StatelessWidget {
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
-      backgroundColor: const Color.fromARGB(245, 73, 39, 176),
+      backgroundColor: const Color.fromARGB(200, 73, 39, 176),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -38,46 +42,12 @@ class StartScreen extends StatelessWidget {
             const SizedBox(
               height: 70,
             ),
-            RichText(
-              text: const TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Learn ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  TextSpan(
-                    text: 'Flutter ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 19,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  TextSpan(
-                    text: 'To The ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  TextSpan(
-                    text: 'Fun  ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 19,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  TextSpan(
-                    text: 'Way ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ],
-              ),
+            const Text(
+              'Learn Flutter To The Fun Way ',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 50,
@@ -86,7 +56,13 @@ class StartScreen extends StatelessWidget {
                 icon: const Icon(
                   Icons.arrow_right_alt,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const Questions();
+                    },
+                  ));
+                },
                 style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.green.shade300,
                   foregroundColor: Colors.white,

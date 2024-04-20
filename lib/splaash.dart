@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_front_page/start_screen.dart';
 
 class Splash extends StatefulWidget {
@@ -15,11 +15,11 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     Timer(
-      const Duration(seconds: 4),
+      const Duration(seconds: 2),
       () {
         Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (context) {
-            return const StartScreen();
+            return  StartScreen();
           },
         ));
       },
@@ -46,11 +46,7 @@ class _SplashState extends State<Splash> {
             SizedBox(
               height: 50,
             ),
-            Icon(
-              Icons.arrow_right_alt_rounded,
-              color: Colors.white,
-              size: 50,
-            ),
+          
             CircularProgressIndicator(
               backgroundColor: Colors.black,
               color: Colors.white,
