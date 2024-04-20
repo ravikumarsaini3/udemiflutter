@@ -15,7 +15,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 4),
       () {
         Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (context) {
@@ -50,6 +50,10 @@ class _SplashState extends State<Splash> {
               Icons.arrow_right_alt_rounded,
               color: Colors.white,
               size: 50,
+            ),
+            CircularProgressIndicator(
+              backgroundColor: Colors.black,
+              color: Colors.white,
             )
           ],
         ),
