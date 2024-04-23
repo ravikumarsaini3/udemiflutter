@@ -30,6 +30,7 @@ class _StartScreenState extends State<StartScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+           
             Container(
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.green),
