@@ -37,7 +37,7 @@ class _SplashState extends State<Splash> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Welcome TO The Flutter',
+              'Welcome TO The Flutter ',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
