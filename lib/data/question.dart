@@ -1,6 +1,6 @@
 import 'package:flutter_front_page/model/quizquestion.dart';
 
- List<dynamic> questions = [
+var questions = [
    Quizquestion(
     'What are the main building blocks of Flutter UIs?',
     [
