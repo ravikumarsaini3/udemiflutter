@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_front_page/data/question.dart';
 import 'package:flutter_front_page/questions.dart';
+import 'package:flutter_front_page/result_screen.dart';
 
 class StartScreen extends StatefulWidget {
+  const StartScreen({super.key});
+
   @override
   State<StartScreen> createState() => _StartScreenState();
 }
 
 class _StartScreenState extends State<StartScreen> {
+  List<String> selectedanswer = [];
+  void chooseanswer(String answer) {
+    selectedanswer.add(answer);
+    if (selectedanswer.length == questions.length - 1) {
+      setState(() {
+        // selectedanswer = [];
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ResultScreen(chooseanswer: selectedanswer),
+            ));
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +49,6 @@ class _StartScreenState extends State<StartScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-           
             Container(
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.green),
@@ -60,7 +78,9 @@ class _StartScreenState extends State<StartScreen> {
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const Questions();
+                      return Questions(
+                        onselectanswer: chooseanswer,
+                      );
                     },
                   ));
                 },

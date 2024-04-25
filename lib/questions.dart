@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_front_page/botton.dart';
 import 'package:flutter_front_page/data/question.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Questions extends StatefulWidget {
-  const Questions({super.key});
+  final void Function(String answer) onselectanswer;
+  const Questions({super.key, required this.onselectanswer});
 
   @override
   State<Questions> createState() => _QuestionsState();
@@ -12,7 +14,8 @@ class Questions extends StatefulWidget {
 
 class _QuestionsState extends State<Questions> {
   var currentquestionindex = 0;
-  void questionAnswer() {
+  void questionAnswer(String selectedanswer) {
+    widget.onselectanswer(selectedanswer);
     setState(() {
       currentquestionindex++;
     });
@@ -33,7 +36,7 @@ class _QuestionsState extends State<Questions> {
             Center(
               child: Text(
                 currentquestion.text,
-                style: const TextStyle(
+                style: GoogleFonts.abel(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
@@ -44,7 +47,11 @@ class _QuestionsState extends State<Questions> {
             ),
             ...currentquestion.getShuffledAnswer().map(
               (answer) {
-                return Button(answertext: answer, ontap: questionAnswer);
+                return Button(
+                    answertext: answer,
+                    ontap: () {
+                      questionAnswer(answer);
+                    });
               },
             ),
             const SizedBox(
