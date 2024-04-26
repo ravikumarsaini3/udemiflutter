@@ -25,58 +25,59 @@ class _QuestionsumaryState extends State<Questionsumary> {
       height: 300,
       child: SingleChildScrollView(
         child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: widget.summarydata.map(
-          (data) {
-            return Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: indexcolor,
-                  child: Text(
-                    ((data['question_index'] as int) + 1).toString(),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.only(left: 30),
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      // mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          child: Center(
-                              child: Text(
-                            data['question'] as String,
-                            style: TextStyle(color: Colors.white),
-                          )),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          data['correct_answer'] as String,
-                          style: const TextStyle(
-                              color: Color.fromARGB(255, 7, 192, 224)),
-                        ),
-                        Text(
-                          data['user_answer'] as String,
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 137, 58, 151),
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        )
-                      ],
+              (data) {
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 20,
+                      backgroundColor: indexcolor,
+                      child: Text(
+                        ((data['question_index'] as int) + 1).toString(),
+                      ),
                     ),
-                  ),
-                ),
-              ],
-            );
-          },
-        ).toList()),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.only(left: 30),
+                        child: Column(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              child: Center(
+                                  child: Text(
+                                data['question'] as String,
+                                style: TextStyle(color: Colors.white),
+                              )),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              data['correct_answer'] as String,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(255, 7, 192, 224)),
+                            ),
+                            Text(
+                              data['user_answer'] as String,
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 137, 58, 151),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ).toList()),
       ),
     );
   }

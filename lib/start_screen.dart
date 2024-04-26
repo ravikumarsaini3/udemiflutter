@@ -16,7 +16,7 @@ class _StartScreenState extends State<StartScreen> {
     selectedanswer.add(answer);
     if (selectedanswer.length == questions.length - 1) {
       setState(() {
-        // selectedanswer = [];
+        //selectedanswer = [];
         Navigator.push(
             context,
             MaterialPageRoute(

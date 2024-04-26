@@ -56,6 +56,8 @@ class ResultScreen extends StatelessWidget {
                     color: Colors.red,
                   ),
                   onPressed: () {
+                   
+
                     Navigator.push(
                         context,
                         MaterialPageRoute(
